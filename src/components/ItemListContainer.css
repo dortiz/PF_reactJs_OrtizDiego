@@ -1,0 +1,48 @@
+.item-list-container {
+    background-color: #a1e0da;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.title {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    white-space: nowrap;
+}
+
+.carousel-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.carousel-container .carousel-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 600px;
+}
+
+.carousel-caption h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}

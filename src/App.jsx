@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <NavBar />
-      <ItemListContainer greeting="Bienvenidos a Tienda Dental Alta Gracias. Inspiramos Sonrisas" />
+      <ItemListContainer greeting="Bienvenidos a Tienda Dental. Inspiramos Sonrisas" />
     </div>
   );
 };
