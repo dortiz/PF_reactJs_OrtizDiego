@@ -1,0 +1,12 @@
+.cart-widget {
+    display: flex;
+    align-items: center;
+}
+
+.cart-widget svg {
+    color: #00796b;
+}
+
+.badge {
+    background-color: #ff4081;
+}

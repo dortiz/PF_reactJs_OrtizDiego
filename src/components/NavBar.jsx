@@ -1,34 +1,35 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
-import logo from '../assets/logo.png';
-import './NavBar.css';
+import logo from './/assets/logo.png'; 
+import './NavBar.css'; // Estilos específicos del navbar
 
-const NavBar = () => {
+const Navbar = () => {
   return (
-    <Navbar bg="light" expand="lg" className="navbar-container">
-      <Navbar.Brand href="#home" className="navbar-brand">
-        <img
-          src={logo}
-          alt="Tienda Dental"
-          className="logo"
-        />
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggler-custom" />
-      <Navbar.Collapse id="basic-navbar-nav" className="collapse-container">
-        <Nav className="mx-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#empresa">Nosotros</Nav.Link>
-          <Nav.Link href="#productos">Productos</Nav.Link>
-          <Nav.Link href="#noticias">Noticias</Nav.Link>
-          <Nav.Link href="#contacto">Contacto</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
+    <nav className="navbar-container">
+      <div className="navbar-brand">
+        <Link to="/">
+          <img src={logo} alt="Tienda Dental" className="logo" />
+        </Link>
+      </div>
+      <button className="navbar-toggler-custom" aria-label="Toggle navigation">
+        {/* Icono de menú hamburguesa */}
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse-container">
+        <ul className="navbar-nav">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/category/empresa">Nosotros</Link></li>
+          <li><Link to="/category/productos">Productos</Link></li>
+          <li><Link to="/category/noticias">Noticias</Link></li>
+          <li><Link to="/category/contacto">Contacto</Link></li>
+        </ul>
+      </div>
       <div className="cart-widget-container">
         <CartWidget />
       </div>
-    </Navbar>
+    </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;

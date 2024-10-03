@@ -1,15 +1,15 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Badge } from 'react-bootstrap';
-import './CartWidget.css';
+import './CartWidget.css'; // Estilos del CartWidget
 
 const CartWidget = () => {
-  const itemCount = 0; // Número hardcodeado
+  const itemCount = 5;
 
   return (
-    <div className="cart-widget-container">
+    <div className="cart-widget">
       <FaShoppingCart size={24} />
-      <Badge bg="primary" pill className="badge">
+      <Badge bg="primary" pill className="ms-2">
         {itemCount}
       </Badge>
     </div>
