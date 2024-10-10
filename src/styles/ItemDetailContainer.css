@@ -1,0 +1,10 @@
+.item-detail-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    max-width: 400px;
+    /* Ajusta el ancho según sea necesario */
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
-import logo from './/assets/logo.png'; 
-import './NavBar.css'; // Estilos específicos del navbar
+import logo from '../assets/logo.png'; // Cambia la ruta a ../assets
+import '../styles/NavBar.css'; // Cambia la ruta a ../styles
 
-const Navbar = () => {
+const NavBar = () => {
   return (
     <nav className="navbar-container">
       <div className="navbar-brand">
@@ -13,7 +13,6 @@ const Navbar = () => {
         </Link>
       </div>
       <button className="navbar-toggler-custom" aria-label="Toggle navigation">
-        {/* Icono de menú hamburguesa */}
         <span className="navbar-toggler-icon" />
       </button>
       <div className="collapse-container">
@@ -32,4 +31,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

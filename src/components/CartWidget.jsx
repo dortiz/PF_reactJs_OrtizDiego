@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Badge } from 'react-bootstrap';
-import './CartWidget.css'; // Estilos del CartWidget
+import '../styles/CartWidget.css'; // Cambia la ruta a ../styles
 
 const CartWidget = () => {
   const itemCount = 5;
