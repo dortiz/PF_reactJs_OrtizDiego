@@ -1,84 +1,47 @@
+/* src/styles/NavBar.css */
 .navbar-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
-    position: relative;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    /* Color de fondo */
+    color: white;
+    /* Color del texto */
 }
 
-.navbar-brand {
-    margin-right: 2rem;
-}
-
-.logo {
-    width: 120px; /* Ajusta el tamaño del logo */
-    height: auto;
-}
-
-.collapse-container {
-    display: none; /* Ocultar el menú por defecto en móviles */
-    flex-direction: column; /* Apilar elementos verticalmente */
-    position: absolute; /* Posicionar debajo del navbar */
-    top: 4rem; /* Espacio debajo del navbar */
-    left: 0;
-    width: 100%; /* Ancho completo */
-    background-color: #fff; /* Fondo del menú desplegable */
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del menú */
-    transition: all 0.3s ease-in-out; /* Transición suave */
-}
-
-.collapse-container.open {
-    display: flex; /* Mostrar el menú cuando está abierto */
+.navbar-brand .logo {
+    height: 50px;
+    /* Ajusta la altura de tu logo */
 }
 
 .navbar-nav {
-    display: flex;
-    gap: 1.5rem;
     list-style: none;
-    flex-direction: column; /* Apilar elementos en móviles */
-    align-items: center; /* Centrar elementos en móviles */
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-nav li {
-    margin: 0;
+    margin: 0 15px;
 }
 
-.navbar-nav li a {
+.navbar-nav a {
+    color: white;
     text-decoration: none;
-    color: #333; /* Color del texto */
-    font-weight: bold;
 }
 
 .cart-widget-container {
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
+    margin-left: auto;
+    /* Alinea el carrito a la derecha */
 }
 
-.navbar-toggler-custom {
-    display: none; /* Ocultar el botón por defecto */
+.collapse-container {
+    display: none;
+    /* Ocultar por defecto */
 }
 
-@media (max-width: 991px) {
-    .navbar-container {
-        padding: 0 1rem; /* Reducir padding en móviles */
-    }
-
-    .navbar-toggler-custom {
-        display: block; /* Mostrar botón de menú en móviles */
-        position: fixed;
-        right: 1rem;
-        top: 1rem;
-        z-index: 1001; /* Asegurarse de que el botón esté por encima */
-    }
-
-    .cart-widget-container {
-        position: fixed;
-        right: 1rem;
-        top: 1rem;
-        z-index: 1000; /* Asegurarse de que el carrito esté por encima */
-    }
+.collapse-container.open {
+    display: block;
+    /* Mostrar cuando está abierto */
 }
