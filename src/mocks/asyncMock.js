@@ -1,16 +1,48 @@
-// asyncMock.js
+import img1 from '../assets/img1.jpg';
+import img2 from '../assets/img2.jpg';
+
 const items = [
     {
         id: 1,
         title: 'Producto 1',
         description: 'Descripción del producto 1',
-        imgSrc: 'assets/img1.jpg', // Asegúrate de que la ruta sea correcta
+        imgSrc: img1,
+        category: 'Categoría A', // Agrega la categoría
     },
     {
         id: 2,
         title: 'Producto 2',
         description: 'Descripción del producto 2',
-        imgSrc: 'assets/img2.jpg',
+        imgSrc: img2,
+        category: 'Categoría B', // Agrega la categoría
+    },
+    {
+        id: 3,
+        title: 'Producto 3',
+        description: 'Descripción del producto 3',
+        imgSrc: require('../assets/img1.jpg').default,
+        category: 'Categoría A',
+    },
+    {
+        id: 4,
+        title: 'Producto 4',
+        description: 'Descripción del producto 4',
+        imgSrc: require('../assets/img2.jpg').default,
+        category: 'Categoría C',
+    },
+    {
+        id: 5,
+        title: 'Producto 5',
+        description: 'Descripción del producto 5',
+        imgSrc: require('../assets/img1.jpg').default,
+        category: 'Categoría B',
+    },
+    {
+        id: 6,
+        title: 'Producto 6',
+        description: 'Descripción del producto 6',
+        imgSrc: require('../assets/img2.jpg').default,
+        category: 'Categoría C',
     },
     // Puedes agregar más productos aquí
 ];

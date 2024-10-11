@@ -1,48 +1,42 @@
-/* Estilos para el componente ProductItem */
+/* src/styles/ProductItem.css */
 
 .product-item {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
     text-align: center;
-    transition: box-shadow 0.3s;
-}
-
-.product-item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    flex: 1 1 calc(25% - 32px); /* Ajustar el tamaño de las tarjetas */
 }
 
 .product-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
-.product-item h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
+.product-item h3 {
+    font-size: 1.2em;
+    margin: 8px 0;
 }
 
 .product-item p {
-    font-size: 1.2em;
+    font-size: 0.9em;
     color: #555;
 }
 
-.product-item .price {
-    font-weight: bold;
-    color: #333;
+.product-list {
+    display: flex; /* Usar flexbox para alinear las tarjetas */
+    flex-wrap: wrap; /* Permitir que las tarjetas se ajusten en la siguiente fila */
+    justify-content: space-between; /* Espacio entre las tarjetas */
+    padding: 0; /* Sin padding alrededor de la lista de productos */
+    margin: 0; /* Sin margen alrededor de la lista de productos */
 }
 
-.product-item button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.product-item button:hover {
-    background-color: #218838;
+.product-category {
+    font-size: 0.8em;
+    color: #777;
+    margin: 8px 0; /* Espacio alrededor de la categoría */
 }

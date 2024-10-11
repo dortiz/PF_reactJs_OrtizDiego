@@ -1,43 +1,22 @@
-/* Estilos para el componente ProductDetail */
+/* src/styles/ProductDetail.css */
 
 .product-detail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    text-align: center; /* Centrar texto */
+    padding: 16px; /* Agregar un poco de padding */
 }
 
 .product-detail img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+    max-width: 80%; /* Limitar el ancho máximo de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-radius: 8px; /* Redondear los bordes de la imagen */
 }
 
-.product-detail h1 {
-    font-size: 2em;
-    margin: 20px 0;
+.product-detail h2 {
+    font-size: 1.5em; /* Ajustar el tamaño del título */
+    margin: 16px 0; /* Espaciado alrededor del título */
 }
 
 .product-detail p {
-    font-size: 1.2em;
-    color: #555;
-}
-
-.product-detail .price {
-    font-size: 1.5em;
-    color: #333;
-    font-weight: bold;
-}
-
-.product-detail button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.product-detail button:hover {
-    background-color: #0056b3;
+    font-size: 1em; /* Ajustar el tamaño del texto de la descripción */
+    color: #555; /* Color de texto de la descripción */
 }
