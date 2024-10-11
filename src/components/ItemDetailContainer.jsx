@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
-import mockFetch from '../mocks/asyncMock'; // Asegúrate de que la ruta sea correcta
-import '../styles/ItemDetailContainer.css'; // Si tienes estilos específicos
+import mockFetch from '../mocks/asyncMock'; 
+import '../styles/ItemDetailContainer.css'; 
 
 const ItemDetailContainer = () => {
-    const { itemId } = useParams(); // Obtener el id del producto desde la URL
+    const { itemId } = useParams(); 
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await mockFetch(); // Llama a la función mockFetch
-                const foundItem = data.find((i) => i.id === parseInt(itemId)); // Busca el item por ID
+                const data = await mockFetch(); 
+                const foundItem = data.find((i) => i.id === parseInt(itemId)); 
                 setItem(foundItem);
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {
-                setLoading(false); // Cambiar el estado de carga a false después de obtener los datos
+                setLoading(false); 
             }
         };
 
@@ -26,11 +26,11 @@ const ItemDetailContainer = () => {
     }, [itemId]);
 
     if (loading) {
-        return <div>Loading...</div>; // Muestra un mensaje de carga mientras se obtienen los datos
+        return <div>Loading...</div>; 
     }
 
     if (!item) {
-        return <div>Item not found</div>; // Mensaje si no se encuentra el producto
+        return <div>Item not found</div>; 
     }
 
     return (

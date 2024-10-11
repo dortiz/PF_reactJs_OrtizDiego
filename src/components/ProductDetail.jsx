@@ -1,16 +1,13 @@
-// src/components/ProductDetail.jsx
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/ProductDetail.css';
 
-// Puedes obtener los productos desde el mock
+
 import mockFetch from '../mocks/asyncMock';
 
 const ProductDetail = () => {
-    const { id } = useParams(); // Obtiene el ID del producto de la URL
+    const { id } = useParams(); 
 
-    // Obtenemos los productos del mock (en un caso real, esto sería una API)
     const [product, setProduct] = React.useState(null);
 
     React.useEffect(() => {

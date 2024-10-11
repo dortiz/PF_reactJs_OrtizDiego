@@ -1,23 +1,22 @@
-// ItemListContainer.jsx
 import React, { useEffect, useState } from 'react';
-import mockFetch from '../mocks/asyncMock'; // Asegúrate de que esta ruta sea correcta
-import ProductItem from './ProductItem'; // Asegúrate de que esta ruta sea correcta
+import mockFetch from '../mocks/asyncMock'; 
+import ProductItem from './ProductItem'; 
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([]); // Inicializa como un array
-    const [loading, setLoading] = useState(true); // Estado de carga
-    const [error, setError] = useState(null); // Estado de error
+    const [products, setProducts] = useState([]); 
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const data = await mockFetch(); // Llama a la función mockFetch
+                const data = await mockFetch(); 
                 setProducts(data);
             } catch (error) {
                 console.error('Error fetching products:', error);
                 setError('Hubo un problema al cargar los productos.');
             } finally {
-                setLoading(false); // Finaliza el estado de carga
+                setLoading(false); 
             }
         };
 

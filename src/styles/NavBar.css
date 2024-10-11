@@ -1,18 +1,14 @@
-/* src/styles/NavBar.css */
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     background-color: #333;
-    /* Color de fondo */
     color: white;
-    /* Color del texto */
 }
 
 .navbar-brand .logo {
     height: 50px;
-    /* Ajusta la altura de tu logo */
 }
 
 .navbar-nav {
@@ -33,15 +29,13 @@
 
 .cart-widget-container {
     margin-left: auto;
-    /* Alinea el carrito a la derecha */
+
 }
 
 .collapse-container {
     display: none;
-    /* Ocultar por defecto */
 }
 
 .collapse-container.open {
     display: block;
-    /* Mostrar cuando está abierto */
 }
