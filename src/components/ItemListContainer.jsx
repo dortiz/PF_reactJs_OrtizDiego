@@ -43,8 +43,8 @@ const ItemListContainer = () => {
                 <label htmlFor="category-select">Filtrar por categoría:</label>
                 <select id="category-select" value={selectedCategory} onChange={handleCategoryChange}>
                     <option value="">Todas las categorías</option>
-                    <option value="Electrónica">Categoría A</option>
-                    <option value="Ropa">Categoría B</option>
+                    <option value="Categoría A">Categoría A</option>
+                    <option value="Categoría B">Categoría B</option>
                 </select>
             </div>
 
@@ -54,7 +54,7 @@ const ItemListContainer = () => {
                         <ProductItem key={product.id} product={product} />
                     ))
                 ) : (
-                    <p>No hay productos disponibles.</p>
+                    <p>No hay productos disponibles para esta categoría.</p>
                 )}
             </div>
         </div>
