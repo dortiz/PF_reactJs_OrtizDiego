@@ -7,18 +7,26 @@ import mockFetch from '../mocks/asyncMock';
 
 const ProductDetail = () => {
     const { id } = useParams(); 
-
     const [product, setProduct] = React.useState(null);
+    const [loading, setLoading] = useState(true);
 
     React.useEffect(() => {
         const fetchProduct = async () => {
-            const products = await mockFetch();
-            const foundProduct = products.find(prod => prod.id === parseInt(id));
-            setProduct(foundProduct);
+            try {
+                const products = await mockFetch();
+                const foundProduct = products.find(prod => prod.id === parseInt(id));
+                setProduct(foundProduct);
+            } catch (error) {
+                console.error('Error fetching product:', error)
+            } finally {
+                setLoading(false);
+            }
         };
         fetchProduct();
     }, [id]);
-
+    if(loading) {
+        return <p>Cargando producto...</p>
+    }
     if (!product) {
         return <div>Producto no encontrado</div>;
     }
