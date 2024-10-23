@@ -28,6 +28,7 @@ const ProductDetail = () => {
             <h2>{product.title}</h2>
             <img src={product.imgSrc} alt={product.title} />
             <p>{product.description}</p>
+            <p><strong>Categoría:</strong> {product.category}</p> {}
         </div>
     );
 };

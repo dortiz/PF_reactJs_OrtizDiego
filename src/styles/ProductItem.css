@@ -1,5 +1,5 @@
 .product-item {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
     margin: 16px;
@@ -13,6 +13,8 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    max-height: 150px;
+    object-fit: cover;
 }
 
 .product-item h3 {
@@ -26,15 +28,28 @@
 }
 
 .product-list {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    padding: 0; 
-    margin: 0; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
 }
 
 .product-category {
     font-size: 0.8em;
     color: #777;
     margin: 8px 0; 
+}
+
+.more-button {
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.more-button:hover {
+    background-color: #0056b3;
 }
