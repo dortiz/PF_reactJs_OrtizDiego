@@ -1,48 +1,68 @@
+// src/components/ItemDetailContainer.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
-import mockFetch from '../mocks/asyncMock'; 
-import '../styles/ItemDetailContainer.css'; 
+import { useCart } from '../context/CartContext';
+import mockFetch from '../mocks/asyncMock';
+import { toast } from 'react-toastify'; // Importar Toastify
+import '../styles/ItemDetailContainer.css'; // Importar estilos
 
 const ItemDetailContainer = () => {
-    const { itemId } = useParams(); 
+    const { id } = useParams();
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart(); 
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await mockFetch(); 
-                const foundItem = data.find((i) => i.id === parseInt(itemId)); 
-                setItem(foundItem);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            } finally {
-                setLoading(false); 
-            }
+        const fetchItem = async () => {
+            const items = await mockFetch();
+            const foundItem = items.find(item => item.id === parseInt(id));
+            setItem(foundItem);
+            setLoading(false);
         };
 
-        fetchData();
-    }, [itemId]);
+        fetchItem();
+    }, [id]);
 
-    if (loading) {
-        return <div>Loading...</div>; 
-    }
+    const handleQuantityChange = (event) => {
+        const value = Math.max(1, parseInt(event.target.value) || 1); // Asegurarse de que la cantidad sea al menos 1
+        setQuantity(value);
+    };
 
-    if (!item) {
-        return <div>Item not found</div>; 
-    }
+    const handleAddToCart = () => {
+        if (item) {
+            const itemWithQuantity = { ...item, quantity }; // Añadir la cantidad al objeto del producto
+            addToCart(itemWithQuantity); // Añadir el producto al carrito
+            toast.success(`${item.title} agregado al carrito!`, { autoClose: 2000 }); // Mostrar el mensaje con Toastify
+        }
+    };
+
+    if (loading) return <p>Cargando...</p>;
+
+    if (!item) return <p>Producto no encontrado.</p>;
 
     return (
         <div className="item-detail-container">
-            <Card>
-                <Card.Img variant="top" src={require(`../${item.imgSrc}`)} alt={item.title} />
-                <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>{item.description}</Card.Text>
-                    <Button variant="primary">Agregar al carrito</Button>
-                </Card.Body>
-            </Card>
+            <div className="item-card">
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+                <p>Precio: ${item.price.toFixed(2)}</p> {/* Cambiado a item.price */}
+                <img src={item.imgSrc} alt={item.title} />
+                
+                <div className="quantity-container">
+                    <button className="quantity-button" onClick={() => setQuantity(quantity - 1)} disabled={quantity <= 1}>-</button>
+                    <input
+                        type="number"
+                        className="quantity-input"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                    />
+                    <button className="quantity-button" onClick={() => setQuantity(quantity + 1)}>+</button>
+                </div>
+                
+                <button onClick={handleAddToCart}>Añadir al carrito</button>
+            </div>
         </div>
     );
 };

@@ -1,64 +1,62 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import mockFetch from '../mocks/asyncMock';
-import ProductItem from './ProductItem';
+import { Link } from 'react-router-dom';
+import '../styles/ItemListContainer.css'; // Importar estilos
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([]);
+    const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('todas');
 
     useEffect(() => {
-        const getProducts = async () => {
-            try {
-                const data = await mockFetch();
-                setProducts(data);
-            } catch (error) {
-                console.error('Error fetching products:', error);
-                setError('Hubo un problema al cargar los productos.');
-            } finally {
-                setLoading(false);
-            }
+        const fetchItems = async () => {
+            const fetchedItems = await mockFetch();
+            setItems(fetchedItems);
+            setLoading(false);
         };
 
-        getProducts();
+        fetchItems();
     }, []);
 
-    const handleCategoryChange = (e) => {
-        setSelectedCategory(e.target.value);
-    };
+    const categories = ['todas', 'categoria1', 'categoria2']; // Nombres en español
 
-    const filteredProducts = selectedCategory
-    ? products.filter(product => product.category === selectedCategory)
-    : products;
-
-    if (loading) return <p>Cargando productos...</p>;
-    if (error) return <p>{error}</p>;
+    const filteredItems = selectedCategory === 'todas'
+        ? items
+        : items.filter(item => item.category === selectedCategory);
 
     return (
-        <div>
-            <h1>Productos</h1>
-
-            <div className="category-filter">
-                <label htmlFor="category-select">Filtrar por categoría:</label>
-                <select id="category-select" value={selectedCategory} onChange={handleCategoryChange}>
-                    <option value="">Todas las categorías</option>
-                    <option value="Categoría A">Categoría A</option>
-                    <option value="Categoría B">Categoría B</option>
+        <div className="item-list-container">
+            <h1>Lista de Productos</h1>
+            <div className="category-select">
+                <label htmlFor="categories">Selecciona una categoría:</label>
+                <select
+                    id="categories"
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    value={selectedCategory}
+                >
+                    {categories.map((category, index) => (
+                        <option key={index} value={category}>{category}</option>
+                    ))}
                 </select>
             </div>
 
-            <div className="product-list">
-                {filteredProducts.length > 0 ? (
-                    filteredProducts.map(product => (
-                        <ProductItem key={product.id} product={product} />
-                    ))
-                ) : (
-                    <p>No hay productos disponibles para esta categoría.</p>
-                )}
-            </div>
+            {loading ? (
+                <p>Cargando...</p>
+            ) : (
+                <div className="item-list">
+                    {filteredItems.map(item => (
+                        <div className="item-card" key={item.id}>
+                            <h2>{item.title}</h2>
+                            <p>{item.description}</p>
+                            <img src={item.imgSrc} alt={item.title} />
+                            <Link to={`/product/${item.id}`}>Ver Detalles</Link>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
 
 export default ItemListContainer;
+

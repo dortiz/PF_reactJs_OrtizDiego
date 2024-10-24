@@ -1,41 +1,45 @@
+/* NavBar.css */
+
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
+    padding: 1rem;
+    background-color: #f8f9fa;
 }
 
 .navbar-brand .logo {
-    height: 50px;
+    height: 50px; /* Ajusta según tu logo */
 }
 
 .navbar-nav {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    gap: 1rem;
 }
 
 .navbar-nav li {
-    margin: 0 15px;
+    position: relative;
 }
 
-.navbar-nav a {
-    color: white;
-    text-decoration: none;
+.dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.cart-widget-container {
-    margin-left: auto;
-
+.dropdown:hover .dropdown-menu {
+    display: block; /* Muestra al pasar el mouse */
 }
 
-.collapse-container {
-    display: none;
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
 }
 
-.collapse-container.open {
-    display: block;
+.dropdown-menu li:hover {
+    background-color: #f1f1f1; /* Efecto hover en el submenú */
 }

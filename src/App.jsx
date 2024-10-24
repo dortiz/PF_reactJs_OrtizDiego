@@ -1,20 +1,40 @@
+// src/App.jsx
+
 import React from 'react';
+import { CartProvider } from './context/CartContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify'; // Importa ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import ProductDetail from './components/ProductDetail';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import Checkout from './components/Checkout';
+import Home from './components/Home';        // Importar Home
+import Nosotros from './components/Nosotros'; // Importar Nosotros
+import Noticias from './components/Noticias'; // Importar Noticias
+import Contacto from './components/Contacto'; // Importar Contacto
+import Cart from './components/CartWidget';
 import './styles/index.css';
 
-const App = () => {
-  return (
+const App = () => (
+  <CartProvider>
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/" element={<Home />} /> 
+          <Route path="/category/empresa" element={<Nosotros />} /> 
+          <Route path="/category/noticias" element={<Noticias />} /> 
+          <Route path="/category/contacto" element={<Contacto />} /> 
+          <Route path="/category/productos" element={<ItemListContainer />} />
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/checkout" element={<Checkout />} /> 
+          <Route path="/cart" element={<Cart />} />
       </Routes>
+      <ToastContainer /> {/* Agrega el ToastContainer aquí */}
     </Router>
-  );
-};
+  </CartProvider>
+);
 
 export default App;
+
+
