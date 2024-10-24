@@ -1,10 +1,9 @@
-// src/mocks/asyncMock.js
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
 
 const items = [
     {
-        id: 1,  // Este ID debe coincidir con el ID en la URL
+        id: 1,  
         title: 'Producto 1',
         description: 'Descripción del producto 1',
         price: 1000.00,
@@ -12,7 +11,7 @@ const items = [
         category: 'categoria1',
     },
     {
-        id: 2,  // Este ID debe coincidir con el ID en la URL
+        id: 2,  
         title: 'Producto 2',
         description: 'Descripción del producto 2',
         price: 1500.00,

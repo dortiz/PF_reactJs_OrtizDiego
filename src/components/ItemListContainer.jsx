@@ -18,7 +18,7 @@ const ItemListContainer = () => {
         fetchItems();
     }, []);
 
-    const categories = ['todas', 'categoria1', 'categoria2']; // Nombres en español
+    const categories = ['Todas', 'Categoria1', 'Categoria2']; 
 
     const filteredItems = selectedCategory === 'todas'
         ? items

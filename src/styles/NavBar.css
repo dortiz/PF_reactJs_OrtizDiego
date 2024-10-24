@@ -1,5 +1,3 @@
-/* NavBar.css */
-
 .navbar-container {
     display: flex;
     justify-content: space-between;
@@ -9,7 +7,7 @@
 }
 
 .navbar-brand .logo {
-    height: 50px; /* Ajusta según tu logo */
+    height: 50px; 
 }
 
 .navbar-nav {
@@ -23,7 +21,7 @@
 }
 
 .dropdown-menu {
-    display: none; /* Oculto por defecto */
+    display: none; 
     position: absolute;
     background-color: white;
     border: 1px solid #ddd;
@@ -33,7 +31,7 @@
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block; /* Muestra al pasar el mouse */
+    display: block; 
 }
 
 .dropdown-menu li {
@@ -41,5 +39,5 @@
 }
 
 .dropdown-menu li:hover {
-    background-color: #f1f1f1; /* Efecto hover en el submenú */
+    background-color: #f1f1f1; 
 }

@@ -1,17 +1,15 @@
-// src/components/NavBar.jsx
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
-import CartModal from './CartModal'; // Asegúrate de importar el modal
+import CartModal from './CartModal'; 
 import logo from '../assets/logo.png';
 import '../styles/NavBar.css';
 
 const NavBar = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+    const [isModalOpen, setIsModalOpen] = useState(false); 
 
     const toggleModal = () => {
-        setIsModalOpen(!isModalOpen); // Cambiar el estado del modal
+        setIsModalOpen(!isModalOpen);
     };
 
     return (
@@ -34,7 +32,7 @@ const NavBar = () => {
                 <CartWidget />
             </div>
 
-            <CartModal isOpen={isModalOpen} onClose={toggleModal} /> {/* Pasar props al modal */}
+            <CartModal isOpen={isModalOpen} onClose={toggleModal} /> 
         </nav>
     );
 };

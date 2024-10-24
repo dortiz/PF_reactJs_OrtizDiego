@@ -1,86 +1,83 @@
-/* src/styles/ItemListContainer.css */
-
-/* Estilo para el contenedor principal */
 .item-list-container {
     display: flex;
-    flex-direction: column; /* Apilar elementos verticalmente */
-    align-items: center; /* Centrar horizontalmente */
-    padding: 20px; /* Espaciado interno */
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px; 
 }
 
-/* Estilo para el menú desplegable de categorías */
+
 .category-select {
-    margin: 20px 0; /* Espacio alrededor del menú */
-    text-align: center; /* Centrar el texto */
+    margin: 20px 0; 
+    text-align: center; 
 }
 
 .category-select label {
-    margin-right: 10px; /* Espacio entre la etiqueta y el menú */
+    margin-right: 10px; 
 }
 
-/* Estilo para el menú select */
+
 .category-select select {
-    padding: 8px; /* Espacio interno en el select */
-    border-radius: 5px; /* Bordes redondeados */
-    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 8px; 
+    border-radius: 5px; 
+    border: 1px solid #ddd; 
 }
 
-/* Estilo para la lista de productos */
+
 .item-list {
     display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en múltiples líneas */
-    justify-content: center; /* Centrar las tarjetas */
-    padding: 20px; /* Espacio interno */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 20px; 
 }
 
-/* Estilo para cada tarjeta de producto */
+
 .item-card {
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con un poco de transparencia */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
-    width: calc(25% - 20px); /* Ancho de la tarjeta */
-    margin: 10px; /* Espacio entre las tarjetas */
-    overflow: hidden; /* Esconder el desbordamiento de las imágenes */
-    text-align: center; /* Centrar el texto */
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    width: calc(25% - 20px); 
+    margin: 10px; 
+    overflow: hidden; 
+    text-align: center; 
 }
 
-/* Efecto al pasar el ratón sobre la tarjeta */
+
 .item-card:hover {
-    transform: translateY(-5px); /* Desplazar hacia arriba */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumentar la sombra */
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
 }
 
-/* Estilo para las imágenes */
+
 .item-card img {
-    width: 100%; /* Que la imagen ocupe todo el ancho de la tarjeta */
-    height: auto; /* Mantener la proporción de la imagen */
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Línea debajo de la imagen */
+    width: 100%; 
+    height: auto; 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); 
 }
 
-/* Estilo para el título y descripción del producto */
+
 .item-card h2 {
-    font-size: 1.2em; /* Tamaño del título */
+    font-size: 1.2em; 
     margin: 10px;
-    color: #333; /* Color del texto */
+    color: #333; 
 }
 
 .item-card p {
     margin: 10px;
-    color: #666; /* Color gris para la descripción */
+    color: #666; 
 }
 
-/* Estilo para el enlace */
+
 .item-card a {
-    display: inline-block; /* Mostrar como un bloque */
-    margin: 10px 0; /* Margen vertical */
-    padding: 10px 15px; /* Espacio interno */
-    background-color: #007bff; /* Color de fondo */
-    color: white; /* Color del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    text-decoration: none; /* Sin subrayado */
+    display: inline-block; 
+    margin: 10px 0; 
+    padding: 10px 15px; 
+    background-color: #007bff; 
+    color: white; 
+    border-radius: 5px; 
+    text-decoration: none; 
 }
 
 .item-card a:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+    background-color: #0056b3; 
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import { useCart } from '../context/CartContext'; // Cambia a usar useCart
+import { useCart } from '../context/CartContext'; 
 
 const AddItemButton = ({ item }) => {
-    const { addToCart } = useCart(); // Destructura addToCart
+    const { addToCart } = useCart(); 
 
     const handleAddToCart = () => {
-        addToCart(item); // Agrega el item al carrito
+        addToCart(item); 
         alert(`${item.title} ha sido agregado al carrito`);
     };
 

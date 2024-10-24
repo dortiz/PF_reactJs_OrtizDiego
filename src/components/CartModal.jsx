@@ -1,25 +1,27 @@
-// src/components/CartModal.jsx
-
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import '../styles/CartModal.css'; // Importar estilos
+import '../styles/CartModal.css';
 
 const CartModal = ({ isOpen, onClose }) => {
-    const { cart, removeFromCart, addToCart } = useCart(); // Usa directamente cart
+    const { cart, removeFromCart } = useCart(); 
 
-    if (!isOpen) return null; // No renderizar si el modal no está abierto
+    if (!isOpen) return null; 
 
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0); // Calcular total de items
-    const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0); // Calcular precio total
+    const handleDecreaseQuantity = (item) => {
+        if (item.quantity > 1) {
+            item.quantity -= 1;
+        } else {
+            removeFromCart(item.id); 
+        }
+    };
+
+    const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0); 
 
     return (
         <div className="cart-modal">
             <div className="cart-modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
                 <h1>Tu Carrito</h1>
-                <h2>Total de productos: {totalItems}</h2>
-                <h2>Precio total: ${totalPrice.toFixed(2)}</h2>
-                {/* Verifica si cart es un array y su longitud */}
                 {Array.isArray(cart) && cart.length === 0 ? (
                     <p>No hay productos en tu carrito.</p>
                 ) : (
@@ -30,17 +32,17 @@ const CartModal = ({ isOpen, onClose }) => {
                                 <div>
                                     <h2>{item.title}</h2>
                                     <p>Descripción: {item.description}</p>
-                                    <div className="quantity-control">
-                                        <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
-                                        <button onClick={() => addToCart(item)}>+</button>
-                                        <span>{item.quantity}</span> {/* Mostrar la cantidad actual */}
-                                        <button onClick={() => item.quantity > 1 && removeFromCart(item.id)}>−</button>
-                                    </div>
+                                    <p>Precio Unitario: ${item.price.toFixed(2)}</p>
+                                    <p>Cantidad: {item.quantity}</p>
+                                    <button onClick={() => handleDecreaseQuantity(item)}>-</button>
+                                    <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
                                 </div>
+                                <p>Total: ${(item.price * item.quantity).toFixed(2)}</p> 
                             </div>
                         ))}
                     </div>
                 )}
+                <h3>Total del Carrito: ${totalAmount.toFixed(2)}</h3> 
                 <button onClick={onClose}>Cerrar</button>
             </div>
         </div>

@@ -1,5 +1,3 @@
-// src/components/Contacto.jsx
-
 import React from 'react';
 
 const Contacto = () => {

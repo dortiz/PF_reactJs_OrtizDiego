@@ -1,18 +1,16 @@
-// src/App.jsx
-
 import React from 'react';
 import { CartProvider } from './context/CartContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify'; // Importa ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos
+import { ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Checkout from './components/Checkout';
-import Home from './components/Home';        // Importar Home
-import Nosotros from './components/Nosotros'; // Importar Nosotros
-import Noticias from './components/Noticias'; // Importar Noticias
-import Contacto from './components/Contacto'; // Importar Contacto
+import Home from './components/Home';        
+import Nosotros from './components/Nosotros'; 
+import Noticias from './components/Noticias'; 
+import Contacto from './components/Contacto'; 
 import Cart from './components/CartWidget';
 import './styles/index.css';
 
@@ -30,11 +28,9 @@ const App = () => (
           <Route path="/checkout" element={<Checkout />} /> 
           <Route path="/cart" element={<Cart />} />
       </Routes>
-      <ToastContainer /> {/* Agrega el ToastContainer aquí */}
+      <ToastContainer /> 
     </Router>
   </CartProvider>
 );
 
 export default App;
-
-

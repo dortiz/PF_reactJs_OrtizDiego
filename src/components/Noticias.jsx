@@ -1,5 +1,3 @@
-// src/components/Noticias.jsx
-
 import React from 'react';
 
 const Noticias = () => {

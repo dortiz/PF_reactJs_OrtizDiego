@@ -1,70 +1,66 @@
-/* src/styles/ItemDetailContainer.css */
-
-/* Estilo para el contenedor de detalle de producto */
 .item-detail-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar el contenido */
-    padding: 20px; /* Espacio interno */
+    align-items: center; 
+    padding: 20px; 
 }
 
 .item-detail-container .item-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    width: 60%; /* Ajustar el ancho de la tarjeta */
-    max-width: 400px; /* Ancho máximo de la tarjeta */
-    overflow: hidden; /* Esconder el desbordamiento de las imágenes */
-    text-align: center; /* Centrar el texto */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 15px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    width: 60%; 
+    max-width: 400px; 
+    overflow: hidden; 
+    text-align: center; 
 }
 
-/* Ajustes para la imagen */
+
 .item-detail-container img {
-    width: 100%; /* Que la imagen ocupe todo el ancho de la tarjeta */
-    height: auto; /* Mantener la proporción de la imagen */
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Línea debajo de la imagen */
+    width: 100%; 
+    height: auto; 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); 
 }
 
 .item-detail-container h2 {
-    font-size: 1.3em; /* Tamaño del título ajustado */
-    margin: 15px 0; /* Margen superior e inferior reducido */
-    color: #333; /* Color del texto */
+    font-size: 1.3em; 
+    margin: 15px 0; 
+    color: #333; 
 }
 
 .item-detail-container p {
-    margin: 10px; /* Margen para la descripción */
-    color: #666; /* Color gris para la descripción */
+    margin: 10px; 
+    color: #666; 
 }
 
-/* Estilo para el contenedor de cantidad */
 .quantity-container {
     display: flex;
-    align-items: center; /* Centrar verticalmente */
-    justify-content: center; /* Centrar horizontalmente */
-    margin: 15px 0; /* Espacio alrededor reducido */
+    align-items: center; 
+    justify-content: center; 
+    margin: 15px 0; 
 }
 
-/* Estilo para los botones de cantidad */
+
 .quantity-button {
-    background-color: #007bff; /* Color del botón */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 8px; /* Espaciado interno reducido */
-    cursor: pointer; /* Cursor de mano al pasar por encima */
-    transition: background-color 0.3s; /* Transición suave */
-    margin: 0 3px; /* Espacio entre los botones */
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    margin: 0 3px; 
 }
 
 .quantity-button:hover {
-    background-color: #0056b3; /* Color del botón al pasar por encima */
+    background-color: #0056b3; 
 }
 
-/* Estilo para el campo de cantidad */
+
 .quantity-input {
-    width: 40px; /* Ancho del campo de cantidad reducido */
-    text-align: center; /* Centrar texto */
-    border: 1px solid #ddd; /* Borde gris */
-    border-radius: 5px; /* Bordes redondeados */
-    margin: 0 3px; /* Espacio alrededor reducido */
+    width: 40px; 
+    text-align: center; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    margin: 0 3px; 
 }

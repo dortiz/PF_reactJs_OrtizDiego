@@ -1,11 +1,9 @@
-// src/components/ItemDetailContainer.jsx
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import mockFetch from '../mocks/asyncMock';
-import { toast } from 'react-toastify'; // Importar Toastify
-import '../styles/ItemDetailContainer.css'; // Importar estilos
+import { toast } from 'react-toastify'; 
+import '../styles/ItemDetailContainer.css'; 
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -26,15 +24,15 @@ const ItemDetailContainer = () => {
     }, [id]);
 
     const handleQuantityChange = (event) => {
-        const value = Math.max(1, parseInt(event.target.value) || 1); // Asegurarse de que la cantidad sea al menos 1
+        const value = Math.max(1, parseInt(event.target.value) || 1); 
         setQuantity(value);
     };
 
     const handleAddToCart = () => {
         if (item) {
-            const itemWithQuantity = { ...item, quantity }; // Añadir la cantidad al objeto del producto
-            addToCart(itemWithQuantity); // Añadir el producto al carrito
-            toast.success(`${item.title} agregado al carrito!`, { autoClose: 2000 }); // Mostrar el mensaje con Toastify
+            const itemWithQuantity = { ...item, quantity }; 
+            addToCart(itemWithQuantity); 
+            toast.success(`${item.title} agregado al carrito!`, { autoClose: 2000 }); 
         }
     };
 
@@ -47,7 +45,7 @@ const ItemDetailContainer = () => {
             <div className="item-card">
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
-                <p>Precio: ${item.price.toFixed(2)}</p> {/* Cambiado a item.price */}
+                <p>Precio: ${item.price.toFixed(2)}</p> 
                 <img src={item.imgSrc} alt={item.title} />
                 
                 <div className="quantity-container">

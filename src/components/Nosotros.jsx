@@ -1,5 +1,3 @@
-// src/components/Nosotros.jsx
-
 import React from 'react';
 
 const Nosotros = () => {
