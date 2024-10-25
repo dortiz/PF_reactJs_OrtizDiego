@@ -1,8 +1,6 @@
 import React, { useState} from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/ProductDetail.css';
-
-
 import mockFetch from '../mocks/asyncMock';
 
 const ProductDetail = () => {
