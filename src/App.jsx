@@ -6,12 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import Checkout from './components/Checkout';
 import Home from './components/Home';        
 import Nosotros from './components/Nosotros'; 
 import Noticias from './components/Noticias'; 
 import Contacto from './components/Contacto'; 
-import Cart from './components/CartWidget';
+import CartPage from './components/CartPage';
+import Checkout from './components/Checkout'; 
 import './styles/index.css';
 
 const App = () => (
@@ -26,7 +26,8 @@ const App = () => (
           <Route path="/category/productos" element={<ItemListContainer />} />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/checkout" element={<Checkout />} /> 
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<CartPage />} />
+          
       </Routes>
       <ToastContainer /> 
     </Router>

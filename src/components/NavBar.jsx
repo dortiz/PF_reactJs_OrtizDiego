@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
-import CartModal from './CartModal'; 
 import logo from '../assets/logo.png';
 import '../styles/NavBar.css';
 
 const NavBar = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false); 
-
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
-
     return (
         <nav className="navbar-container">
             <div className="navbar-brand">
@@ -28,11 +21,11 @@ const NavBar = () => {
                 <li><Link to="/category/contacto">Contacto</Link></li>
             </ul>
 
-            <div className="cart-widget-container" onClick={toggleModal}>
-                <CartWidget />
+            <div className="cart-widget-container">
+                <Link to="/cart">
+                    <CartWidget />
+                </Link>
             </div>
-
-            <CartModal isOpen={isModalOpen} onClose={toggleModal} /> 
         </nav>
     );
 };
