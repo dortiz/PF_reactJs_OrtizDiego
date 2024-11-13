@@ -21,7 +21,7 @@ const items = [
         description: 'Motor Inalambrico para Endodoncia',
         price: 95000.00,
         imgSrc: "https://scontent.fcor11-1.fna.fbcdn.net/v/t39.30808-6/342207664_1250284228929526_853809804758453881_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEkp_IUF-F0EU3gONwRy11wnsxLRKmwhzOezEtEqbCHM_PF5LJ-VWoIz3WLSGjXYB0&_nc_ohc=rMXGYGgXRgAQ7kNvgHnIxPg&_nc_zt=23&_nc_ht=scontent.fcor11-1.fna&_nc_gid=AjpFR72UCexDd6RYAVlSGdI&oh=00_AYAFDAZDrWUb5k9Ws9iqm1STl4rVc-AQrXpejLrj5xdoMQ&oe=6739E01C",
-        category: 'Instrumenal',
+        category: 'Instrumental',
     },
     {
         id: 4,  
