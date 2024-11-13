@@ -6,7 +6,7 @@ import '../styles/ItemListContainer.css';
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedCategory, setSelectedCategory] = useState('todas');
+    const [selectedCategory, setSelectedCategory] = useState('Todas');
 
     useEffect(() => {
         const fetchItems = async () => {

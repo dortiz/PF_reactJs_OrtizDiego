@@ -32,7 +32,6 @@ const ItemDetailContainer = () => {
         if (item) {
             const itemWithQuantity = { ...item, quantity }; 
             addToCart(itemWithQuantity); 
-            toast.success(`${item.title} agregado al carrito!`, { autoClose: 2000 }); 
         }
     };
 
