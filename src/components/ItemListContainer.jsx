@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import mockFetch from '../mocks/asyncMock';
 import { Link } from 'react-router-dom';
-import '../styles/ItemListContainer.css'; // Importar estilos
+import '../styles/ItemListContainer.css';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -18,9 +18,9 @@ const ItemListContainer = () => {
         fetchItems();
     }, []);
 
-    const categories = ['Todas', 'Categoria1', 'Categoria2']; 
+    const categories = ['Todas', 'Prevencion', 'Instrumental', 'Descartables']; 
 
-    const filteredItems = selectedCategory === 'todas'
+    const filteredItems = selectedCategory === 'Todas'
         ? items
         : items.filter(item => item.category === selectedCategory);
 
