@@ -16,8 +16,8 @@ React Toastify: Notificaciones de éxito y error.
 
 Instalación
 Clona este repositorio en tu máquina local.
-git clone https://github.com/dortiz/ProyectoFinalJS-OrtizDiego
-cd ProyectoFinalJS-OrtizDiego
+git clone https://github.com/dortiz/PF_reactJs_OrtizDiego
+cd PF_reactJs_OrtizDiego
 
 Instala las dependencias usando npm o yarn.
 npm install
