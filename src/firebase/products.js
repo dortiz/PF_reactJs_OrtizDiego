@@ -1,23 +1,22 @@
-import {
-    collection,
-    getDocs
-} from 'firebase/firestore';
-import {
-    db
-} from './firebaseConfig';
+import { db } from '../firebaseConfig';
+import { collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore';
 
-const fetchProductsFromFirestore = async () => {
-    try {
-        const querySnapshot = await getDocs(collection(db, "products"));
-        const products = querySnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        }));
-        return products;
-    } catch (error) {
-        console.error("Error fetching products from Firestore: ", error);
-        return [];
-    }
+
+export const obtenerProductos = async (categoria = null) => {
+    const productosRef = collection(db, 'productos');
+    let q = categoria ? query(productosRef, where("category", "==", categoria)) : productosRef;
+
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-export default fetchProductsFromFirestore;
+export const obtenerProductoPorId = async (id) => {
+    const docRef = doc(db, 'productos', id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        return { id: docSnap.id, ...docSnap.data() };
+    } else {
+        throw new Error('Producto no encontrado');
+    }
+};

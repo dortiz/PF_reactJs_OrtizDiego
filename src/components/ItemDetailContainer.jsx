@@ -1,7 +1,8 @@
+// src/components/ItemDetailContainer.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import mockFetch from '../mocks/asyncMock';
+import { obtenerProductoPorId } from '../firebase/products';
 import { toast } from 'react-toastify'; 
 import '../styles/ItemDetailContainer.css'; 
 
@@ -14,9 +15,13 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const fetchItem = async () => {
-            const items = await mockFetch();
-            const foundItem = items.find(item => item.id === parseInt(id));
-            setItem(foundItem);
+            setLoading(true);
+            try {
+                const foundItem = await obtenerProductoPorId(id);
+                setItem(foundItem);
+            } catch (error) {
+                console.error('Error al obtener el producto:', error);
+            }
             setLoading(false);
         };
 
@@ -32,11 +37,11 @@ const ItemDetailContainer = () => {
         if (item) {
             const itemWithQuantity = { ...item, quantity }; 
             addToCart(itemWithQuantity); 
+            toast.success('Producto agregado al carrito!');
         }
     };
 
     if (loading) return <p>Cargando...</p>;
-
     if (!item) return <p>Producto no encontrado.</p>;
 
     return (

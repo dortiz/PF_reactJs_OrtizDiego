@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import mockFetch from '../mocks/asyncMock';
+import { obtenerProductos } from '../firebase/products';
 import { Link } from 'react-router-dom';
 import '../styles/ItemListContainer.css';
 
@@ -10,19 +10,16 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         const fetchItems = async () => {
-            const fetchedItems = await mockFetch();
+            setLoading(true);
+            const fetchedItems = await obtenerProductos(selectedCategory !== 'Todas' ? selectedCategory : null);
             setItems(fetchedItems);
             setLoading(false);
         };
 
         fetchItems();
-    }, []);
+    }, [selectedCategory]);
 
     const categories = ['Todas', 'Prevencion', 'Instrumental', 'Descartables']; 
-
-    const filteredItems = selectedCategory === 'Todas'
-        ? items
-        : items.filter(item => item.category === selectedCategory);
 
     return (
         <div className="item-list-container">
@@ -44,7 +41,7 @@ const ItemListContainer = () => {
                 <p>Cargando...</p>
             ) : (
                 <div className="item-list">
-                    {filteredItems.map(item => (
+                    {items.map(item => (
                         <div className="item-card" key={item.id}>
                             <h2>{item.title}</h2>
                             <p>{item.description}</p>

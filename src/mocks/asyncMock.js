@@ -71,7 +71,7 @@ const mockFetch = () => {
         setTimeout(() => {
             resolve(items);
         }, 1000);
-    });
+    });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 };
 
 export default mockFetch;
