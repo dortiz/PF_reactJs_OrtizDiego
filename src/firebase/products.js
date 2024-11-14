@@ -3,7 +3,7 @@ import { collection, getDocs, query, where, doc, getDoc } from 'firebase/firesto
 
 
 export const obtenerProductos = async (category = null) => {
-    const productosRef = collection(db, 'productos');
+    const productosRef = collection(db, 'Productos');
     let q = category ? query(productosRef, where("category", "==", category)) : productosRef;
 
     console.log('Ejecutando consulta:', q);
