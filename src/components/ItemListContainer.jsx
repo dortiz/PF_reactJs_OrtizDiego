@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { obtenerProductos } from '../firebase/products';
-import { Link } from 'react-router-dom';
+import ProductItem from './ProductItem';
+import LoadingBar from './LoadingBar';  
 import '../styles/ItemListContainer.css';
 
 const ItemListContainer = () => {
@@ -11,15 +12,21 @@ const ItemListContainer = () => {
     useEffect(() => {
         const fetchItems = async () => {
             setLoading(true);
-            const fetchedItems = await obtenerProductos(selectedCategory !== 'Todas' ? selectedCategory : null);
-            setItems(fetchedItems);
-            setLoading(false);
+            try {
+                const fetchedItems = await obtenerProductos(selectedCategory !== 'Todas' ? selectedCategory : null);
+                console.log(fetchedItems); 
+                setItems(fetchedItems);
+            } catch (error) {
+                console.error('Error al obtener productos:', error);
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchItems();
     }, [selectedCategory]);
 
-    const categories = ['Todas', 'Prevencion', 'Instrumental', 'Descartables']; 
+    const categories = ['Todas', 'Prevencion', 'Instrumental', 'Descartables'];
 
     return (
         <div className="item-list-container">
@@ -38,17 +45,18 @@ const ItemListContainer = () => {
             </div>
 
             {loading ? (
-                <p>Cargando...</p>
+                <div className="loading-container">
+                    <LoadingBar />
+                </div>
             ) : (
                 <div className="item-list">
-                    {items.map(item => (
-                        <div className="item-card" key={item.id}>
-                            <h2>{item.title}</h2>
-                            <p>{item.description}</p>
-                            <img src={item.imgSrc} alt={item.title} />
-                            <Link to={`/product/${item.id}`}>Ver Detalles</Link>
-                        </div>
-                    ))}
+                    {items.length > 0 ? (
+                        items.map((product) => (
+                            <ProductItem key={product.id} product={product} />
+                        ))
+                    ) : (
+                        <p>No hay productos disponibles en esta categoría.</p>
+                    )}
                 </div>
             )}
         </div>
@@ -56,4 +64,3 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
-

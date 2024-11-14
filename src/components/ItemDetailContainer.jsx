@@ -1,4 +1,3 @@
-// src/components/ItemDetailContainer.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
