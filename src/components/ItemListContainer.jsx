@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { obtenerProductos } from '../firebase/products';
+import { obtenerTodosLosProductos, obtenerProductosPorCategoria } from '../firebase/products';
 import ProductItem from './ProductItem';
-import LoadingBar from './LoadingBar';  
+import LoadingBar from './LoadingBar';
 import '../styles/ItemListContainer.css';
 
 const ItemListContainer = () => {
@@ -13,8 +13,9 @@ const ItemListContainer = () => {
         const fetchItems = async () => {
             setLoading(true);
             try {
-                const fetchedItems = await obtenerProductos(selectedCategory !== 'Todas' ? selectedCategory : null);
-                console.log(fetchedItems); 
+                const fetchedItems = selectedCategory === 'Todas' 
+                    ? await obtenerTodosLosProductos()
+                    : await obtenerProductosPorCategoria(selectedCategory);
                 setItems(fetchedItems);
             } catch (error) {
                 console.error('Error al obtener productos:', error);
@@ -45,9 +46,7 @@ const ItemListContainer = () => {
             </div>
 
             {loading ? (
-                <div className="loading-container">
-                    <LoadingBar />
-                </div>
+                <LoadingBar />
             ) : (
                 <div className="item-list">
                     {items.length > 0 ? (
